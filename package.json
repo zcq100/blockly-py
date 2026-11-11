@@ -7,7 +7,7 @@
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
-    "test": "node tests/programs.test.js && node tests/worker.test.js && node tests/layout.test.js"
+    "test": "node tests/programs.test.js && node tests/worker.test.js && node tests/layout.test.js && node tests/assets.test.js"
   },
   "dependencies": {
     "blockly": "^12.3.1",
