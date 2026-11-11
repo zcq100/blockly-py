@@ -43,3 +43,30 @@ Cross-Origin-Embedder-Policy: require-corp
 ```
 
 Vite 开发与预览服务器已配置。浏览器内的 Python 没有本机文件访问权限，文件系统为临时虚拟文件系统。运行环境支持 Python 标准库；本应用未提供额外第三方 Python 包安装界面。
+
+## CI 与版本发布
+
+GitHub Actions 在推送到 `main` 或提交 PR 时执行 `npm ci`、测试和生产构建。手动运行工作流也只做检查，不会创建 Release。
+
+更新 `package.json` 和锁文件中的版本号即可更新页面显示，**不需要打 tag，也不会自动发布**。例如：
+
+```bash
+npm version patch --no-git-tag-version
+# 同步更新本 README 中的版本号，然后提交代码
+```
+
+准备发布时，先确保代码已推送、版本号与 tag 一致，再推送版本 tag（以下以 `0.0.3` 为例）：
+
+```bash
+git tag -a v0.0.3 -m "v0.0.3"
+git push origin v0.0.3
+```
+
+工作流会重新测试、构建，成功后创建 GitHub Release，并附上：
+
+- `blockly-py-v0.0.3.zip`：可部署的静态网页，包含完整 Python 运行资源；解压后根目录即 `index.html`。
+- `SHA256SUMS`：构建包的 SHA-256 校验值。
+
+tag 与 `package.json` 版本不一致时发布失败；`v0.0.3-rc.1` 这类带后缀的版本会标记为预发布。重跑成功的 tag 工作流会更新对应 Release 的附件，不重复创建 Release。
+
+构建包包含适用于 Cloudflare Pages、Netlify 等平台的 `_headers` 文件；其他静态服务器仍需按上面的部署说明配置两个跨源隔离响应头。工作流不会自动部署网站，也不会为已存在的旧 tag 补发 Release。
