@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+  <!-- The upper-left piece approaches the three already joined pieces. -->
+  <path fill="#3F73C4" d="M2 1h9a1 1 0 0 1 1 1v2h1a2 2 0 0 1 0 4h-1v4H9v-1a2 2 0 0 0-4 0v1H1V2a1 1 0 0 1 1-1Z"/>
+  <path fill="#6796DF" d="M18 5h12a1 1 0 0 1 1 1v11h-4v1a2 2 0 0 1-4 0v-1h-6v-5h1a2 2 0 0 0 0-4h-1V6a1 1 0 0 1 1-1Z"/>
+  <path fill="#3FB1D8" d="M5 17h4v-1a2 2 0 0 1 4 0v1h4v5h-1a2 2 0 0 0 0 4h1v5H6a1 1 0 0 1-1-1V17Z"/>
+  <path fill="#328FAF" d="M17 17h6v1a2 2 0 0 0 4 0v-1h4v13a1 1 0 0 1-1 1H17v-5h-1a2 2 0 0 1 0-4h1v-5Z"/>
+</svg>
