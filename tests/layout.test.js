@@ -13,7 +13,7 @@ dom.window.SVGElement.prototype.getBBox=function(){return {x:0,y:0,width:80,heig
 dom.window.HTMLCanvasElement.prototype.getContext=()=>({measureText:text=>({width:String(text).length*8})});
 const Blockly=await import('blockly');
 await import('blockly/blocks');
-const {pythonGenerator}=await import('blockly/python');
+const {pythonGenerator}=await import('../src/python-generator.js');
 test('Real Blockly toolbox initializes with resizers and still loads programs',()=>{
  const host=document.querySelector('#blockly'),main=document.querySelector('main');
  Object.defineProperty(host,'clientWidth',{value:700});

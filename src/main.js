@@ -1,7 +1,7 @@
 import * as Blockly from 'blockly';
 import 'blockly/blocks';
 import * as Zh from 'blockly/msg/zh-hans';
-import {pythonGenerator} from 'blockly/python';
+import {pythonGenerator} from './python-generator.js';
 import './style.css';
 import {setupResizers} from './resizers.js';
 import {setupWorkspaceControls} from './workspace-controls.js';
