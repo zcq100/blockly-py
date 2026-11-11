@@ -152,3 +152,22 @@ body.resizing-panels,body.resizing-panels *{cursor:col-resize!important;user-sel
  #blockly :is(.blocklyScrollbarHorizontal,.blocklyScrollbarVertical){opacity:1;pointer-events:auto}
 }
 @media(prefers-reduced-motion:reduce){button,#toast,.resize-handle::after,#blockly :is(.blocklyScrollbarHorizontal,.blocklyScrollbarVertical,.blocklyScrollbarHandle){transition:none}}
+
+/* Compact icon groups share the same dimensions across all instrument bars. */
+.icon-group{display:inline-flex;align-items:center;gap:2px!important;padding:2px;border:1px solid var(--border);border-radius:7px;background:#fff}
+.icon-group button,.panel-head .icon-group button{width:32px;height:30px;min-height:30px;padding:0;border:0;border-radius:4px;box-shadow:none;gap:0}
+.icon-group .icon,.panel-head .icon-group .icon{width:16px;height:16px}
+.transport .icon-group .run{background:#3f73c4;color:#fff}
+.transport .icon-group .run:hover:not(:disabled){background:#3263ad;color:#fff}
+.transport .icon-group #stop:hover:not(:disabled){background:#f6ecec;color:#9b555f}
+.panel-head .icon-only{width:30px;height:30px;min-height:30px;padding:0;border-radius:5px}
+.panel-head .icon-only .icon{width:16px;height:16px}
+.panel-head .icon-only:hover{background:#eef3fb}
+.footer-meta{display:flex;align-items:center;gap:12px;font-size:10px}
+.footer-meta a{display:inline-flex;align-items:center;gap:5px;min-height:28px;color:#74839a;text-decoration:none;transition:color 140ms var(--ease)}
+.footer-meta a .icon{width:13px;height:13px}
+.footer-meta a:hover{color:#3f73c4}
+.footer-meta a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.footer-version{font:10px/16px Consolas,monospace;font-variant-numeric:tabular-nums;color:#8a97aa}
+@media(max-width:540px){footer .keyboard-hints{display:none}}
+@media(prefers-reduced-motion:reduce){.footer-meta a{transition:none}}
