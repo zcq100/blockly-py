@@ -4,6 +4,8 @@
 
 中文 Blockly 图形化 Python 编程应用。拖拽积木实时生成 Python，在浏览器的独立 Web Worker 中通过 Pyodide（CPython / WebAssembly）执行。
 
+![积木工坊界面截图](docs/images/01.png)
+
 ## 本地启动
 
 需要 Node.js 20.19+（或 22.12+）。
