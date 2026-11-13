@@ -78,8 +78,8 @@ tag 与 `package.json` 版本不一致时发布失败；`v0.0.3-rc.1` 这类带�
 版本 tag 触发的工作流在测试与构建通过后，还会构建 Nginx 静态站点镜像并推送到 GitHub Container Registry：
 
 ```text
-ghcr.io/<owner>/<repo>:0.0.3   # 与 tag 对应的版本
-ghcr.io/<owner>/<repo>:latest  # 仅稳定版本更新
+ghcr.io/zcq100/blockly-py:0.0.3   # 与 tag 对应的版本
+ghcr.io/zcq100/blockly-py:latest  # 仅稳定版本更新
 ```
 
 - 预发布 tag（如 `v0.0.3-rc.1`）只推送带后缀的版本标签，不会覆盖 `latest`。
@@ -89,7 +89,7 @@ ghcr.io/<owner>/<repo>:latest  # 仅稳定版本更新
 运行：
 
 ```bash
-docker run --rm -p 8080:80 ghcr.io/<owner>/<repo>:latest
+docker run --rm -p 8080:80 ghcr.io/zcq100/blockly-py:latest
 ```
 
 打开 http://localhost:8080 即可使用。
