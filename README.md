@@ -1,6 +1,6 @@
 # 积木工坊 · Python Studio
 
-当前版本：`v0.0.2`
+当前版本：`v0.0.3`
 
 中文 Blockly 图形化 Python 编程应用。拖拽积木实时生成 Python，在浏览器的独立 Web Worker 中通过 Pyodide（CPython / WebAssembly）执行。
 
