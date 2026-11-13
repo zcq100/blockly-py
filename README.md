@@ -72,3 +72,24 @@ git push origin v0.0.3
 tag 与 `package.json` 版本不一致时发布失败；`v0.0.3-rc.1` 这类带后缀的版本会标记为预发布。重跑成功的 tag 工作流会更新对应 Release 的附件，不重复创建 Release。
 
 构建包包含适用于 Cloudflare Pages、Netlify 等平台的 `_headers` 文件；其他静态服务器仍需按上面的部署说明配置两个跨源隔离响应头。工作流不会自动部署网站，也不会为已存在的旧 tag 补发 Release。
+
+### 容器镜像
+
+版本 tag 触发的工作流在测试与构建通过后，还会构建 Nginx 静态站点镜像并推送到 GitHub Container Registry：
+
+```text
+ghcr.io/<owner>/<repo>:0.0.3   # 与 tag 对应的版本
+ghcr.io/<owner>/<repo>:latest  # 仅稳定版本更新
+```
+
+- 预发布 tag（如 `v0.0.3-rc.1`）只推送带后缀的版本标签，不会覆盖 `latest`。
+- 镜像已内置 `Cross-Origin-Opener-Policy`、`Cross-Origin-Embedder-Policy` 响应头，并提供 `/healthz` 健康检查。
+- 仓库为私有或组织仓库时，首次推送后需在包设置中确认可见性；拉取私有镜像前需要 `docker login ghcr.io`。
+
+运行：
+
+```bash
+docker run --rm -p 8080:80 ghcr.io/<owner>/<repo>:latest
+```
+
+打开 http://localhost:8080 即可使用。
